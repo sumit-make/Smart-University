@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Student Marks</title>
+    <link rel="stylesheet" href="style1.css">
+    <style>
+        body {
+            margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('https://t3.ftcdn.net/jpg/06/24/90/56/360_F_624905687_6jgMrzI78toEYK9Vkp0rB5u2hOKJQXR3.jpg');
+   background-size: cover;
+}
+
+.container {
+    max-width: 400px;
+    margin-top: 100px;
+    margin-left: 500px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: azure;
+}
+
+input {
+    margin-left: 30px;
+    padding: 8px;
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px;
+    margin-left: 100px;
+    background-color: blue;
+    color: white;
+    border-radius: 10%;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkblue;
+}
+
+#marksResult {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+    </style>
+   
+
+</head>
+<body>
+
+    <div class="container">
+        <h2>Check Your Marks</h2>
+        <input type="text" id="rollNumber" placeholder="Enter Roll Number">
+        <button onclick="getMarks()">Get Marks</button>
+        <div id="marksResult"></div>
+    </div>
+    <script>
+        function getMarks() {
+    let rollNumber = document.getElementById("rollNumber").value.trim();
+    let resultDiv = document.getElementById("marksResult");
+
+    if (rollNumber === "") {
+        resultDiv.innerHTML = "❌ Please enter a roll number.";
+        return;
+    }
+
+    fetch(`http://localhost:3000/getMarks/${rollNumber}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("No record found");
+            }
+            return response.json();
+        })
+        .then(data => {
+            let marks = data.marks;
+            resultDiv.innerHTML = `
+                ✅ Name: ${data.name} <br>
+                📖 Math: ${marks.Math} <br>
+                📖 Science: ${marks.Science} <br>
+                📖 English: ${marks.English} <br>
+                📖 History: ${marks.History} <br>
+            `;
+        })
+        .catch(error => {
+            resultDiv.innerHTML = "❌ No record found!";
+        });
+}
+    </script>
+
+    <script src="marks.js"></script>
+</body>
+</html>

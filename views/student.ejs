@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://t3.ftcdn.net/jpg/06/24/90/56/360_F_624905687_6jgMrzI78toEYK9Vkp0rB5u2hOKJQXR3.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: repeat;
+            height: 100vh;
+            margin: 0;
+        }
+        header {
+            background: #333;
+            color: white;
+            padding: 1px;
+            text-align: center;
+        }
+        nav {
+            background: #444;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+        .dashboard {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .dashboard-item {
+            background: white;
+            margin: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 220px;
+            text-align: center;
+        }
+        .dashboard-item h3 {
+            font-size: 1.2em;
+        }
+        .dashboard-item p {
+            font-size: 1em;
+            margin: 10px 0;
+        }
+        footer {
+            background-color: rgb(26, 43, 51);
+            padding: 35px;
+            margin-top: 10rem;
+            position: relative;
+            text-align: center;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .footer-links a {
+            margin: 0 15px;
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #ff9800;
+        }
+        #im{
+            height: 2.5rem;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Your Student Portal</h1>
+        <h2>Institute Of National Importance</h2>
+    </header>
+    <nav>
+        <img id="im" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwRlyjpYm-QKfvbdsR2D9G93xPabAfZowZVw&s" alt="NIT Logo">
+        <a href="/home">Home</a>
+        <a href="/home/Attendance">Attendance</a>
+        <a href="/home/academic">Academic</a>
+        <a href="/home/student">Dashboard</a>
+        <a href="/home/club">Clubs</a>
+        <a href="/home/library">Library</a>
+        <h2>Institute Of National Importance</h2>
+        <h3>National Institute Of Technology Kurukshetra</h3>
+    </nav>
+    <div class="container">
+        <h2>Your Dashboard</h2>
+        <div class="dashboard">
+            <div class="dashboard-item">
+                <h3>My Courses</h3>
+                <p>View and manage your enrolled courses</p>
+                <a href="/courses"><button>View Courses</button></a>
+            </div>
+            <div class="dashboard-item">
+                <h3>Assignments</h3>
+                <p>Check upcoming and past assignments</p>
+                <a href="/assignments"><button>View Assignments</button></a>
+            </div>
+            <div class="dashboard-item">
+                <h3>Grades</h3>
+                <p>See your latest grades</p>
+                <a href="/grades"><button>View Grades</button></a>
+            </div>
+            <div class="dashboard-item">
+                <h3>Profile</h3>
+                <p>Edit your personal information</p>
+                <a href="/profile"><button>View Profile</button></a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; National Institute of Technology Kurukshetra
+        <div class="footer-links">
+            <a href="/privacy">Privacy</a>
+            <a href="/terms">Terms</a>
+        </div>
+    </footer>
+</body>
+</html>
